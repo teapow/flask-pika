@@ -1,3 +1,7 @@
+*This is a fork of [flask-pika](https://github.com/wdtinc/flask-pika) with proposed changes from [this PR](https://github.com/wdtinc/flask-pika/pull/9).*
+
+---
+
 # Pika Extension for Flask
 
 This extension provides a simple way to expose a Pika blocking channel inside of Flask.
