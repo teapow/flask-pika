@@ -1,9 +1,11 @@
-#Pika Extension for Flask
+# Pika Extension for Flask
+
 This extension provides a simple way to expose a Pika blocking channel inside of Flask.
 
 Once a channel is obtained, use it as you would any normal Pika blocking channel.
 
-##Initializing the Pika object
+## Initializing the Pika object
+
 Add the Flask Pika Params to your app config and then initialize the Flask Pika instance with a your app instance.
 
     ##config.py
@@ -36,7 +38,8 @@ Add the Flask Pika Params to your app config and then initialize the Flask Pika 
     fpika.init_app(app)
 
 
-##Connection pooling
+## Connection pooling
+
 If the optional FLASK_PIKA_POOL_PARAMS are specified in your app config, then channels will be allocated via a pool of channels.
 
 * pool_size: number of channels to have open at any one time
@@ -45,7 +48,8 @@ If the optional FLASK_PIKA_POOL_PARAMS are specified in your app config, then ch
 Each pool will be allocated per process and the pool will be shared amongst the threads in the process.
 	
 
-##Using the Pika object
+## Using the Pika object
+
 Use the pika object you created and get a Pika blocking channel.
     
     ch = fpika.channel();
@@ -53,7 +57,8 @@ Use the pika object you created and get a Pika blocking channel.
     fpika.return_channel(ch);
 
 
-##Resource handling
+## Resource handling
+
 Any pika channel obtained via the fpkia.channel() call must be returned via either the fpika.return_channel(channel) call 
 or the fpika.return_broken_channel(channel) call.
 
@@ -61,5 +66,3 @@ The return_channel call should be used under normal circumstances and the return
 channel is known to be broken.
 
 If the return channel calls are not used, then Pika connections will be leaked.
-
-
